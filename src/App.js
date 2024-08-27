@@ -1,13 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
-// import About from './components/About';
+import About from './components/About';
 import React, { useState } from 'react';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
 
 
-// import { BrowserRouter, Route, Routes } from "react-router-dom";
+ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 
 function App() {
@@ -49,19 +49,23 @@ function App() {
 
 
     return (  <> 
-        { /* <BrowserRouter> */ }
-         < Navbar title = "Textutils"  mode = { mode } togglemode = { togglemode } /> 
+        <BrowserRouter> 
+        < Navbar title = "Textutils" about="About" mode = { mode } togglemode = { togglemode } /> 
+        
          <Alert alert = { alert } /> 
-         <div className = "container my-3" >
+         {/* <div className = "container my-3" >
             < TextForm showalert={showalert}  heading = "Enter text to analyze" mode = { mode } />
+            
             </div>
-             {/* <About />  */}
-             { /* <Routes> */ }
-              { /* <Route exact path="/about" element={<About />}>
+            <About/> */}
+            
+             
+              <Routes> 
+               <Route exact path="/about" element={<About />}>
                         </Route>
-                        <Route exact path="/" element={<TextForm heading="Enter text to analyze"  mode={mode} />}> */ } 
-                        {/* </Route> </Routes> */ }
-          { /* \</BrowserRouter> */ }
+                        <Route exact path="/" element={<TextForm heading="Enter text to analyze"  mode={mode} />}> 
+                         </Route> </Routes> 
+         </BrowserRouter> 
 
 
         </>
