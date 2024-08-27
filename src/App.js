@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
 import About from './components/About';
@@ -7,7 +7,8 @@ import TextForm from './components/TextForm';
 import Alert from './components/Alert';
 
 
- import { BrowserRouter, Route, Routes } from "react-router-dom";
+//  import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 function App() {
@@ -49,7 +50,8 @@ function App() {
 
 
     return (  <> 
-        <BrowserRouter> 
+        {/* <BrowserRouter>  */}
+        <Router>
         < Navbar title = "Textutils" about="About" mode = { mode } togglemode = { togglemode } /> 
         
          <Alert alert = { alert } /> 
@@ -60,12 +62,19 @@ function App() {
             <About/> */}
             
              
-              <Routes> 
+              {/* <Routes> 
                <Route exact path="/about" element={<About />}>
                         </Route>
                         <Route exact path="/" element={<TextForm heading="Enter text to analyze"  mode={mode} />}> 
-                         </Route> </Routes> 
-         </BrowserRouter> 
+                         </Route> </Routes>  */}
+              <Routes>
+                <Route exact path="/" element={<TextForm heading="Enter text to analyze" mode={mode} />} />
+                <Route exact path="/about" element={<About />} />
+            </Routes>
+
+
+        </Router>
+         {/* </BrowserRouter>  */}
 
 
         </>
