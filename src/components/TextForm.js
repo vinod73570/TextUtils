@@ -66,7 +66,7 @@ const [text , setText]=useState('');
 
 
 
-    function countweords(text) {
+   /* function countweords(text) {
       let text1=text.split(/[ ]+/);
       let text2=text1.join(" ");
       let count=text2.split(" ").length;
@@ -76,7 +76,7 @@ const [text , setText]=useState('');
         return count-1;
         else
         return count;    
-          }
+          }*/
         
           
         
@@ -103,7 +103,8 @@ const [text , setText]=useState('');
 
     <div className="container my-3" style={{color : props.mode==='dark'? 'white':'black'}}>
         <h4>your text summary</h4>
-        <p> {!text || text.length ===0?'0':countweords(text)}words and {text.length}charector</p>
+        {/* <p> {!text || text.length ===0?'0':countweords(text)}words and {text.length}charector</p> */}
+        <p> {text.split(" ").filter((element)=>{return element.length !==0}).length}words and {text.length}charector</p>
         <p>{ 0.008 * (text.split(" ").length)} Minutes Read </p>
         <h2>preview</h2>
         <p>{text.length>0?text:"Entr Something Into TextBox"}</p>
