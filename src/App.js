@@ -6,9 +6,8 @@ import React, { useState } from 'react';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
 
-
- import { BrowserRouter, Route, Routes } from "react-router-dom";
-
+// Changed BrowserRouter to HashRouter
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
     const [mode, setmode] = useState('light')
@@ -49,7 +48,8 @@ function App() {
 
 
     return (  <> 
-        <BrowserRouter> 
+        {/* Changed BrowserRouter to Router */}
+        <Router> 
         < Navbar title = "Textutils" about="About" mode = { mode } togglemode = { togglemode } /> 
         
          <Alert alert = { alert } /> 
@@ -65,7 +65,7 @@ function App() {
                         </Route>
                         <Route exact path="/" element={<TextForm heading="Enter text to analyze"  mode={mode} showalert="showalert" />}> 
                          </Route> </Routes> 
-         </BrowserRouter> 
+         </Router> 
 
 
         </>
@@ -77,3 +77,4 @@ function App() {
 }
 
 export default App;
+
