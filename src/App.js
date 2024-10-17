@@ -38,7 +38,7 @@ function App() {
             // }, 1500); 
 
         } else {
-            setmode('dark')
+            setmode('dark')fdgsdfgfsd git
             document.body.style.backgroundColor = '#0F172A'
             showalert('Dark Mode has been Enabled', 'success')
                 //  document.title='TextUtils - DarkMode'
