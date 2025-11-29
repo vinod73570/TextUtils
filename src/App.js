@@ -40,7 +40,7 @@ function App() {
         } else {
             setmode('dark')
             document.body.style.backgroundColor = '#0F172A'
-            showalert('Dark Mode has been Enabled', 'success')
+            showalert('Dark Mode has BEEN Enabled', 'success')
                 //  document.title='TextUtils - DarkMode'
         }
     }
