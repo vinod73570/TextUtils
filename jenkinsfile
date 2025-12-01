@@ -1,0 +1,44 @@
+pipeline {
+  agent any
+
+  environment {
+    IMAGE_NAME = "djangoapp"
+    CONTAINER_NAME = "djengoapp"
+  }
+
+  stages {
+
+    stage('checkout code') {
+      steps {
+        checkout scm
+      }
+    }
+
+    stage('build docker image') {
+      steps {
+        sh """
+          echo 'building docker image'
+          docker build -t djangoapp:1.0.0 .
+        """
+      }
+    }
+
+    stage('running new container') {
+      steps {
+        sh """
+          echo 'creating new container'
+          docker run -d --name hello -p 8000:8000 djangoapp:1.0.0
+        """
+      }
+    }
+  }
+
+  post {
+    success {
+      echo "deployment is successful djangoapp:1.0.0"
+    }
+    failure {
+      echo "deployment failed"
+    }
+  }
+}
